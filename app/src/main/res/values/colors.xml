@@ -1,0 +1,11 @@
+<resources>
+    <color name="navy_dark">#0A1931</color>
+    <color name="navy_mid">#122C4B</color>
+    <color name="navy_light">#1B3B5F</color>
+    <color name="brown">#7B4B27</color>
+    <color name="brown_light">#A9703F</color>
+    <color name="brown_dark">#4E2E17</color>
+    <color name="text_white">#F5F0E6</color>
+    <color name="text_gray">#9FB0C3</color>
+    <color name="accent_orange">#E08A3E</color>
+</resources>

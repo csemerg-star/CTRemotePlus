@@ -1,0 +1,9 @@
+<resources>
+    <style name="Theme.CTRemotePlus" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/navy_dark</item>
+        <item name="colorPrimaryDark">@color/navy_dark</item>
+        <item name="colorAccent">@color/brown_light</item>
+        <item name="android:windowBackground">@color/navy_dark</item>
+        <item name="android:statusBarColor">@color/navy_dark</item>
+    </style>
+</resources>
