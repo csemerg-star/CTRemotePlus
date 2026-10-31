@@ -1,73 +1,146 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent"
-    android:background="@drawable/bg_gradient">
-<LinearLayout
-    android:layout_width="match_parent" android:layout_height="wrap_content"
-    android:orientation="vertical" android:padding="16dp">
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_light">
 
-    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-        android:orientation="horizontal" android:gravity="center_vertical" android:paddingBottom="12dp">
-        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
-            android:text="CT Remote+" android:textColor="@color/text_white" android:textSize="22sp" android:textStyle="bold"/>
-        <TextView android:id="@+id/tvDeviceName" android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:text="Aucun appareil" android:textColor="@color/text_gray" android:textSize="12sp" android:paddingEnd="8dp"/>
-        <ImageButton android:id="@+id/btnSettings" android:layout_width="36dp" android:layout_height="36dp"
-            android:background="@drawable/btn_circle" android:src="@android:drawable/ic_menu_manage" android:contentDescription="Reglages"/>
+    <!-- Barre supérieure (Teal) -->
+    <LinearLayout
+        android:id="@+id/topBar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/teal_primary"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="16dp"
+        android:orientation="horizontal">
+        
+        <ImageView
+            android:id="@+id/btnAddDevice"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@android:drawable/ic_menu_add"
+            app:tint="@color/white" />
+
+        <TextView
+            android:id="@+id/tvDeviceName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="LG TV"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@android:drawable/ic_menu_manage"
+            app:tint="@color/white" />
     </LinearLayout>
 
-    <LinearLayout android:layout_width="match_parent" android:layout_height="48dp"
-        android:orientation="horizontal" android:background="@drawable/btn_round" android:layout_marginBottom="16dp">
-        <Button android:id="@+id/btnModeIr" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1"
-            android:text="Infrarouge" android:backgroundTint="@color/navy_light" android:textColor="@color/text_white"/>
-        <Button android:id="@+id/btnModeWifi" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1"
-            android:text="Wi-Fi" android:backgroundTint="@color/brown" android:textColor="@color/text_white"/>
-    </LinearLayout>
+    <!-- Zone centrale (Pavé directionnel + Vol/Chaîne) -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/topBar"
+        android:layout_above="@id/bottomBar">
 
-    <Button android:id="@+id/btnBrand" android:layout_width="match_parent" android:layout_height="44dp"
-        android:text="Choisir la marque / appareil" android:background="@drawable/btn_round" android:textColor="@color/text_white" android:layout_marginBottom="16dp"/>
-
-    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-        android:orientation="horizontal" android:gravity="center" android:layout_marginBottom="20dp">
-        <Button android:id="@+id/btnPower" android:layout_width="70dp" android:layout_height="70dp"
-            android:text="⏻" android:textSize="26sp" android:textColor="@color/accent_orange" android:background="@drawable/btn_power"/>
-        <Space android:layout_width="24dp" android:layout_height="1dp"/>
-        <Button android:id="@+id/btnSource" android:layout_width="0dp" android:layout_height="70dp" android:layout_weight="1"
-            android:text="SOURCE" android:textColor="@color/text_white" android:background="@drawable/btn_round"/>
-    </LinearLayout>
-
-    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="20dp">
-        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical" android:gravity="center" android:background="@drawable/btn_round" android:padding="8dp" android:layout_marginEnd="8dp">
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="VOLUME" android:textColor="@color/text_gray" android:textSize="11sp"/>
-            <Button android:id="@+id/btnVolUp" android:layout_width="match_parent" android:layout_height="50dp" android:text="+" android:textColor="@color/text_white" android:backgroundTint="@color/navy_light"/>
-            <Button android:id="@+id/btnMute" android:layout_width="match_parent" android:layout_height="40dp" android:text="MUTE" android:textSize="11sp" android:textColor="@color/text_white" android:backgroundTint="@color/brown_dark" android:layout_marginTop="4dp"/>
-            <Button android:id="@+id/btnVolDown" android:layout_width="match_parent" android:layout_height="50dp" android:text="-" android:textColor="@color/text_white" android:backgroundTint="@color/navy_light" android:layout_marginTop="4dp"/>
+        <!-- Bouton Chaîne (Gauche) -->
+        <LinearLayout
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="20dp"
+            android:gravity="center"
+            android:orientation="vertical">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="CHAÎNE" android:textSize="10sp" android:textColor="@color/text_gray"/>
+            <ImageButton android:id="@+id/btnChUp" android:layout_width="60dp" android:layout_height="60dp" android:background="?attr/selectableItemBackgroundBorderless" android:src="@android:drawable/arrow_up_float" />
+            <ImageButton android:id="@+id/btnChDown" android:layout_width="60dp" android:layout_height="60dp" android:background="?attr/selectableItemBackgroundBorderless" android:src="@android:drawable/arrow_down_float" />
         </LinearLayout>
-        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical" android:gravity="center" android:background="@drawable/btn_round" android:padding="8dp">
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="CHAINE" android:textColor="@color/text_gray" android:textSize="11sp"/>
-            <Button android:id="@+id/btnChUp" android:layout_width="match_parent" android:layout_height="50dp" android:text="+" android:textColor="@color/text_white" android:backgroundTint="@color/navy_light"/>
-            <Button android:id="@+id/btnLast" android:layout_width="match_parent" android:layout_height="40dp" android:text="PREC." android:textSize="11sp" android:textColor="@color/text_white" android:backgroundTint="@color/brown_dark" android:layout_marginTop="4dp"/>
-            <Button android:id="@+id/btnChDown" android:layout_width="match_parent" android:layout_height="50dp" android:text="-" android:textColor="@color/text_white" android:backgroundTint="@color/navy_light" android:layout_marginTop="4dp"/>
+
+        <!-- Bouton Volume (Droite) -->
+        <LinearLayout
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="20dp"
+            android:gravity="center"
+            android:orientation="vertical">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="VOLUME" android:textSize="10sp" android:textColor="@color/text_gray"/>
+            <ImageButton android:id="@+id/btnVolUp" android:layout_width="60dp" android:layout_height="60dp" android:background="?attr/selectableItemBackgroundBorderless" android:src="@android:drawable/arrow_up_float" />
+            <ImageButton android:id="@+id/btnVolDown" android:layout_width="60dp" android:layout_height="60dp" android:background="?attr/selectableItemBackgroundBorderless" android:src="@android:drawable/arrow_down_float" />
+        </LinearLayout>
+
+        <!-- Pavé Directionnel Circulaire (Centre) -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="260dp"
+            android:layout_height="260dp"
+            android:layout_centerInParent="true"
+            app:cardCornerRadius="130dp"
+            app:cardElevation="6dp"
+            app:cardBackgroundColor="@color/white">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <ImageButton android:id="@+id/btnUp" android:layout_width="60dp" android:layout_height="60dp" android:layout_centerHorizontal="true" android:layout_marginTop="15dp" android:background="?attr/selectableItemBackgroundBorderless" android:src="@android:drawable/arrow_up_float" />
+                <ImageButton android:id="@+id/btnDown" android:layout_width="60dp" android:layout_height="60dp" android:layout_centerHorizontal="true" android:layout_alignParentBottom="true" android:layout_marginBottom="15dp" android:background="?attr/selectableItemBackgroundBorderless" android:src="@android:drawable/arrow_down_float" />
+                <ImageButton android:id="@+id/btnLeft" android:layout_width="60dp" android:layout_height="60dp" android:layout_alignParentStart="true" android:layout_centerVertical="true" android:layout_marginStart="15dp" android:background="?attr/selectableItemBackgroundBorderless" android:src="@android:drawable/ic_media_previous" />
+                <ImageButton android:id="@+id/btnRight" android:layout_width="60dp" android:layout_height="60dp" android:layout_alignParentEnd="true" android:layout_centerVertical="true" android:layout_marginEnd="15dp" android:background="?attr/selectableItemBackgroundBorderless" android:src="@android:drawable/ic_media_next" />
+                
+                <Button
+                    android:id="@+id/btnOk"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/btn_round_white"
+                    android:text="OK"
+                    android:textColor="@color/text_dark"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+
+    <!-- Barre inférieure (Boutons d'action) -->
+    <LinearLayout
+        android:id="@+id/bottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        android:elevation="10dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:orientation="vertical">
+            <ImageButton android:id="@+id/btnMute" android:layout_width="50dp" android:layout_height="50dp" android:background="@drawable/btn_round_white" android:src="@android:drawable/ic_lock_silent_mode" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="MUTE" android:textSize="10sp" android:layout_marginTop="4dp" android:textColor="@color/text_dark"/>
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:orientation="vertical">
+            <ImageButton android:id="@+id/btnMenu" android:layout_width="50dp" android:layout_height="50dp" android:background="@drawable/btn_round_white" android:src="@android:drawable/ic_menu_sort_by_size" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="MENU" android:textSize="10sp" android:layout_marginTop="4dp" android:textColor="@color/text_dark"/>
+        </LinearLayout>
+
+        <!-- Bouton Power (Rouge) -->
+        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:orientation="vertical">
+            <ImageButton android:id="@+id/btnPower" android:layout_width="70dp" android:layout_height="70dp" android:background="@drawable/btn_power_red" android:src="@android:drawable/ic_lock_power_off" app:tint="@color/white"/>
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:orientation="vertical">
+            <ImageButton android:id="@+id/btnBack" android:layout_width="50dp" android:layout_height="50dp" android:background="@drawable/btn_round_white" android:src="@android:drawable/ic_menu_revert" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="RETOUR" android:textSize="10sp" android:layout_marginTop="4dp" android:textColor="@color/text_dark"/>
+        </LinearLayout>
+
+        <!-- Bouton Source (Corrigé) -->
+        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:orientation="vertical">
+            <ImageButton android:id="@+id/btnSource" android:layout_width="50dp" android:layout_height="50dp" android:background="@drawable/btn_round_white" android:src="@android:drawable/ic_menu_edit" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="ENTRÉE" android:textSize="10sp" android:layout_marginTop="4dp" android:textColor="@color/text_dark"/>
         </LinearLayout>
     </LinearLayout>
-
-    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center" android:orientation="vertical" android:layout_marginBottom="20dp">
-        <Button android:id="@+id/btnUp" android:layout_width="70dp" android:layout_height="50dp" android:text="▲" android:textColor="@color/text_white" android:background="@drawable/btn_round"/>
-        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="4dp" android:layout_marginBottom="4dp">
-            <Button android:id="@+id/btnLeft" android:layout_width="70dp" android:layout_height="50dp" android:text="◀" android:textColor="@color/text_white" android:background="@drawable/btn_round"/>
-            <Button android:id="@+id/btnOk" android:layout_width="70dp" android:layout_height="50dp" android:layout_marginHorizontal="4dp" android:text="OK" android:textColor="@color/navy_dark" android:backgroundTint="@color/accent_orange"/>
-            <Button android:id="@+id/btnRight" android:layout_width="70dp" android:layout_height="50dp" android:text="▶" android:textColor="@color/text_white" android:background="@drawable/btn_round"/>
-        </LinearLayout>
-        <Button android:id="@+id/btnDown" android:layout_width="70dp" android:layout_height="50dp" android:text="▼" android:textColor="@color/text_white" android:background="@drawable/btn_round"/>
-    </LinearLayout>
-
-    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="20dp">
-        <Button android:id="@+id/btnBack" android:layout_width="0dp" android:layout_height="46dp" android:layout_weight="1" android:text="RETOUR" android:textSize="11sp" android:textColor="@color/text_white" android:background="@drawable/btn_round" android:layout_marginEnd="4dp"/>
-        <Button android:id="@+id/btnHome" android:layout_width="0dp" android:layout_height="46dp" android:layout_weight="1" android:text="HOME" android:textSize="11sp" android:textColor="@color/text_white" android:background="@drawable/btn_round" android:layout_marginHorizontal="4dp"/>
-        <Button android:id="@+id/btnMenu" android:layout_width="0dp" android:layout_height="46dp" android:layout_weight="1" android:text="MENU" android:textSize="11sp" android:textColor="@color/text_white" android:background="@drawable/btn_round" android:layout_marginStart="4dp"/>
-    </LinearLayout>
-
-    <GridLayout android:id="@+id/numPad" android:layout_width="match_parent" android:layout_height="wrap_content"
-        android:columnCount="3" android:rowCount="4"/>
-
-</LinearLayout>
-</ScrollView>
+</RelativeLayout>

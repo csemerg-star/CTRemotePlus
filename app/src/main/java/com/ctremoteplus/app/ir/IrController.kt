@@ -5,35 +5,23 @@ import android.hardware.ConsumerIrManager
 import android.widget.Toast
 
 class IrController(private val context: Context) {
-    private val manager: ConsumerIrManager? =
-        context.getSystemService(Context.CONSUMER_IR_SERVICE) as? ConsumerIrManager
-
-    fun isSupported(): Boolean = manager?.hasIrEmitter() == true
+    private val manager: ConsumerIrManager? = context.getSystemService(Context.CONSUMER_IR_SERVICE) as? ConsumerIrManager
 
     fun sendCommand(set: IrCodeSet, key: String) {
         val code = set.codes[key] ?: run {
-            Toast.makeText(context, "Code non disponible pour $key", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "Code non disponible", Toast.LENGTH_SHORT).show()
             return
         }
-        when (set.protocol) {
-            "NEC32" -> transmit(IrProtocols.NEC_FREQ, IrProtocols.nec32(code))
-            "SIRC12" -> transmit(IrProtocols.SIRC_FREQ, IrProtocols.sirc(code.toInt(), 1, 12))
-            "NEC_ADDR" -> transmit(IrProtocols.NEC_FREQ, IrProtocols.necAddrCmd(set.address ?: 0, code.toInt()))
-            "RC5" -> transmit(IrProtocols.RC5_FREQ, IrProtocols.rc5(set.address ?: 0, code.toInt()))
-            "KASEIKYO" -> transmit(IrProtocols.KASEIKYO_FREQ, IrProtocols.kaseikyo(set.vendorId ?: 0x2002, 0x00, 0x00, code.toInt()))
+        val pattern = when (set.protocol) {
+            "NEC32" -> IrProtocols.nec32(code)
+            "NEC_ADDR" -> IrProtocols.necAddrCmd(set.address ?: 0, code.toInt())
+            "RC5" -> IrProtocols.rc5(set.address ?: 0, code.toInt())
+            else -> IrProtocols.nec32(code)
         }
-    }
-
-    fun sendRawNec(address: Int, command: Int) {
-        transmit(IrProtocols.NEC_FREQ, IrProtocols.necAddrCmd(address, command))
-    }
-
-    private fun transmit(freq: Int, pattern: IntArray) {
-        if (manager == null || !manager.hasIrEmitter()) {
-            Toast.makeText(context, "Cet appareil n'a pas d'emetteur infrarouge integre", Toast.LENGTH_LONG).show()
-            return
+        try {
+            manager?.transmit(IrProtocols.NEC_FREQ, pattern)
+        } catch (e: Exception) {
+            Toast.makeText(context, "Erreur IR", Toast.LENGTH_SHORT).show()
         }
-        try { manager.transmit(freq, pattern) }
-        catch (e: Exception) { Toast.makeText(context, "Erreur IR: ${e.message}", Toast.LENGTH_SHORT).show() }
     }
 }

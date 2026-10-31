@@ -1,11 +1,9 @@
 <resources>
-    <color name="navy_dark">#0A1931</color>
-    <color name="navy_mid">#122C4B</color>
-    <color name="navy_light">#1B3B5F</color>
-    <color name="brown">#7B4B27</color>
-    <color name="brown_light">#A9703F</color>
-    <color name="brown_dark">#4E2E17</color>
-    <color name="text_white">#F5F0E6</color>
-    <color name="text_gray">#9FB0C3</color>
-    <color name="accent_orange">#E08A3E</color>
+    <color name="teal_primary">#00838F</color>
+    <color name="teal_dark">#006064</color>
+    <color name="bg_light">#F5F5F5</color>
+    <color name="text_dark">#333333</color>
+    <color name="text_gray">#757575</color>
+    <color name="power_red">#FF5252</color>
+    <color name="white">#FFFFFF</color>
 </resources>
