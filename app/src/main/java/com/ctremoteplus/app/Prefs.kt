@@ -10,4 +10,6 @@ object Prefs {
     fun getBrand(ctx: Context) = prefs(ctx).getString("brand", "Samsung") ?: "Samsung"
     fun setDeviceType(ctx: Context, type: String) = prefs(ctx).edit().putString("device_type", type).apply()
     fun getDeviceType(ctx: Context) = prefs(ctx).getString("device_type", "TV") ?: "TV"
+    fun setCustomAddress(ctx: Context, addr: Int) = prefs(ctx).edit().putInt("custom_addr", addr).apply()
+    fun getCustomAddress(ctx: Context) = prefs(ctx).getInt("custom_addr", -1)
 }

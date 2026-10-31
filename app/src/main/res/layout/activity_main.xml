@@ -5,7 +5,6 @@
     android:layout_height="match_parent"
     android:background="@color/bg_light">
 
-    <!-- Barre supérieure (Teal) -->
     <LinearLayout
         android:id="@+id/topBar"
         android:layout_width="match_parent"
@@ -14,40 +13,39 @@
         android:gravity="center_vertical"
         android:paddingHorizontal="16dp"
         android:orientation="horizontal">
-        
-        <ImageView
+
+        <ImageButton
             android:id="@+id/btnAddDevice"
             android:layout_width="32dp"
             android:layout_height="32dp"
-            android:src="@android:drawable/ic_menu_add"
-            app:tint="@color/white" />
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_add" />
 
         <TextView
             android:id="@+id/tvDeviceName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="LG TV"
+            android:text="TV"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="18sp"
             android:textStyle="bold" />
 
-        <ImageView
+        <ImageButton
+            android:id="@+id/btnBrandMenu"
             android:layout_width="32dp"
             android:layout_height="32dp"
-            android:src="@android:drawable/ic_menu_manage"
-            app:tint="@color/white" />
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_more_dots" />
     </LinearLayout>
 
-    <!-- Zone centrale (Pavé directionnel + Vol/Chaîne) -->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/topBar"
         android:layout_above="@id/bottomBar">
 
-        <!-- Bouton Chaîne (Gauche) -->
         <LinearLayout
             android:layout_width="80dp"
             android:layout_height="wrap_content"
@@ -56,11 +54,10 @@
             android:gravity="center"
             android:orientation="vertical">
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="CHAÎNE" android:textSize="10sp" android:textColor="@color/text_gray"/>
-            <ImageButton android:id="@+id/btnChUp" android:layout_width="60dp" android:layout_height="60dp" android:background="?attr/selectableItemBackgroundBorderless" android:src="@android:drawable/arrow_up_float" />
-            <ImageButton android:id="@+id/btnChDown" android:layout_width="60dp" android:layout_height="60dp" android:background="?attr/selectableItemBackgroundBorderless" android:src="@android:drawable/arrow_down_float" />
+            <ImageButton android:id="@+id/btnChUp" android:layout_width="60dp" android:layout_height="60dp" android:background="?attr/selectableItemBackgroundBorderless" android:src="@drawable/ic_chevron_up" />
+            <ImageButton android:id="@+id/btnChDown" android:layout_width="60dp" android:layout_height="60dp" android:background="?attr/selectableItemBackgroundBorderless" android:src="@drawable/ic_chevron_down" />
         </LinearLayout>
 
-        <!-- Bouton Volume (Droite) -->
         <LinearLayout
             android:layout_width="80dp"
             android:layout_height="wrap_content"
@@ -70,11 +67,10 @@
             android:gravity="center"
             android:orientation="vertical">
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="VOLUME" android:textSize="10sp" android:textColor="@color/text_gray"/>
-            <ImageButton android:id="@+id/btnVolUp" android:layout_width="60dp" android:layout_height="60dp" android:background="?attr/selectableItemBackgroundBorderless" android:src="@android:drawable/arrow_up_float" />
-            <ImageButton android:id="@+id/btnVolDown" android:layout_width="60dp" android:layout_height="60dp" android:background="?attr/selectableItemBackgroundBorderless" android:src="@android:drawable/arrow_down_float" />
+            <ImageButton android:id="@+id/btnVolUp" android:layout_width="60dp" android:layout_height="60dp" android:background="?attr/selectableItemBackgroundBorderless" android:src="@drawable/ic_chevron_up" />
+            <ImageButton android:id="@+id/btnVolDown" android:layout_width="60dp" android:layout_height="60dp" android:background="?attr/selectableItemBackgroundBorderless" android:src="@drawable/ic_chevron_down" />
         </LinearLayout>
 
-        <!-- Pavé Directionnel Circulaire (Centre) -->
         <androidx.cardview.widget.CardView
             android:layout_width="260dp"
             android:layout_height="260dp"
@@ -86,11 +82,11 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-                <ImageButton android:id="@+id/btnUp" android:layout_width="60dp" android:layout_height="60dp" android:layout_centerHorizontal="true" android:layout_marginTop="15dp" android:background="?attr/selectableItemBackgroundBorderless" android:src="@android:drawable/arrow_up_float" />
-                <ImageButton android:id="@+id/btnDown" android:layout_width="60dp" android:layout_height="60dp" android:layout_centerHorizontal="true" android:layout_alignParentBottom="true" android:layout_marginBottom="15dp" android:background="?attr/selectableItemBackgroundBorderless" android:src="@android:drawable/arrow_down_float" />
-                <ImageButton android:id="@+id/btnLeft" android:layout_width="60dp" android:layout_height="60dp" android:layout_alignParentStart="true" android:layout_centerVertical="true" android:layout_marginStart="15dp" android:background="?attr/selectableItemBackgroundBorderless" android:src="@android:drawable/ic_media_previous" />
-                <ImageButton android:id="@+id/btnRight" android:layout_width="60dp" android:layout_height="60dp" android:layout_alignParentEnd="true" android:layout_centerVertical="true" android:layout_marginEnd="15dp" android:background="?attr/selectableItemBackgroundBorderless" android:src="@android:drawable/ic_media_next" />
-                
+                <ImageButton android:id="@+id/btnUp" android:layout_width="60dp" android:layout_height="60dp" android:layout_centerHorizontal="true" android:layout_marginTop="15dp" android:background="?attr/selectableItemBackgroundBorderless" android:src="@drawable/ic_chevron_up" />
+                <ImageButton android:id="@+id/btnDown" android:layout_width="60dp" android:layout_height="60dp" android:layout_centerHorizontal="true" android:layout_alignParentBottom="true" android:layout_marginBottom="15dp" android:background="?attr/selectableItemBackgroundBorderless" android:src="@drawable/ic_chevron_down" />
+                <ImageButton android:id="@+id/btnLeft" android:layout_width="60dp" android:layout_height="60dp" android:layout_alignParentStart="true" android:layout_centerVertical="true" android:layout_marginStart="15dp" android:background="?attr/selectableItemBackgroundBorderless" android:src="@drawable/ic_chevron_left" />
+                <ImageButton android:id="@+id/btnRight" android:layout_width="60dp" android:layout_height="60dp" android:layout_alignParentEnd="true" android:layout_centerVertical="true" android:layout_marginEnd="15dp" android:background="?attr/selectableItemBackgroundBorderless" android:src="@drawable/ic_chevron_right" />
+
                 <Button
                     android:id="@+id/btnOk"
                     android:layout_width="90dp"
@@ -105,7 +101,6 @@
         </androidx.cardview.widget.CardView>
     </RelativeLayout>
 
-    <!-- Barre inférieure (Boutons d'action) -->
     <LinearLayout
         android:id="@+id/bottomBar"
         android:layout_width="match_parent"
@@ -118,29 +113,27 @@
         android:padding="16dp">
 
         <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:orientation="vertical">
-            <ImageButton android:id="@+id/btnMute" android:layout_width="50dp" android:layout_height="50dp" android:background="@drawable/btn_round_white" android:src="@android:drawable/ic_lock_silent_mode" />
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="MUTE" android:textSize="10sp" android:layout_marginTop="4dp" android:textColor="@color/text_dark"/>
+            <ImageButton android:id="@+id/btnMute" android:layout_width="50dp" android:layout_height="50dp" android:background="@drawable/btn_round_white" android:src="@drawable/ic_mute" android:padding="12dp"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="MUET" android:textSize="10sp" android:layout_marginTop="4dp" android:textColor="@color/text_dark"/>
         </LinearLayout>
 
         <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:orientation="vertical">
-            <ImageButton android:id="@+id/btnMenu" android:layout_width="50dp" android:layout_height="50dp" android:background="@drawable/btn_round_white" android:src="@android:drawable/ic_menu_sort_by_size" />
+            <ImageButton android:id="@+id/btnMenu" android:layout_width="50dp" android:layout_height="50dp" android:background="@drawable/btn_round_white" android:src="@drawable/ic_menu_bars" android:padding="12dp"/>
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="MENU" android:textSize="10sp" android:layout_marginTop="4dp" android:textColor="@color/text_dark"/>
         </LinearLayout>
 
-        <!-- Bouton Power (Rouge) -->
         <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:orientation="vertical">
-            <ImageButton android:id="@+id/btnPower" android:layout_width="70dp" android:layout_height="70dp" android:background="@drawable/btn_power_red" android:src="@android:drawable/ic_lock_power_off" app:tint="@color/white"/>
+            <ImageButton android:id="@+id/btnPower" android:layout_width="70dp" android:layout_height="70dp" android:background="@drawable/btn_power_red" android:src="@drawable/ic_power" android:padding="18dp"/>
         </LinearLayout>
 
         <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:orientation="vertical">
-            <ImageButton android:id="@+id/btnBack" android:layout_width="50dp" android:layout_height="50dp" android:background="@drawable/btn_round_white" android:src="@android:drawable/ic_menu_revert" />
+            <ImageButton android:id="@+id/btnBack" android:layout_width="50dp" android:layout_height="50dp" android:background="@drawable/btn_round_white" android:src="@drawable/ic_undo_back" android:padding="12dp"/>
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="RETOUR" android:textSize="10sp" android:layout_marginTop="4dp" android:textColor="@color/text_dark"/>
         </LinearLayout>
 
-        <!-- Bouton Source (Corrigé) -->
         <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:orientation="vertical">
-            <ImageButton android:id="@+id/btnSource" android:layout_width="50dp" android:layout_height="50dp" android:background="@drawable/btn_round_white" android:src="@android:drawable/ic_menu_edit" />
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="ENTRÉE" android:textSize="10sp" android:layout_marginTop="4dp" android:textColor="@color/text_dark"/>
+            <ImageButton android:id="@+id/btnSource" android:layout_width="50dp" android:layout_height="50dp" android:background="@drawable/btn_round_white" android:src="@drawable/ic_input_source" android:padding="12dp"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="SOURCE" android:textSize="10sp" android:layout_marginTop="4dp" android:textColor="@color/text_dark"/>
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

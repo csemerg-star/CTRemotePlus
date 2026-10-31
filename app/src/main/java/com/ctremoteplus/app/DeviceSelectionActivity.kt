@@ -19,13 +19,13 @@ class DeviceSelectionActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val devices = listOf(
-            "TV" to android.R.drawable.ic_menu_view,
-            "Décodeur" to android.R.drawable.ic_menu_sort_by_size,
-            "Lecteur DVD" to android.R.drawable.ic_media_play,
-            "Système Audio" to android.R.drawable.ic_lock_silent_mode_off,
-            "Projecteur" to android.R.drawable.ic_menu_camera,
-            "Climatiseur" to android.R.drawable.ic_menu_compass,
-            "Ventilateur" to android.R.drawable.ic_menu_rotate
+            "TV" to R.drawable.ic_device_tv,
+            "Décodeur" to R.drawable.ic_device_settop,
+            "Lecteur DVD" to R.drawable.ic_device_dvd,
+            "Système Audio" to R.drawable.ic_device_audio,
+            "Projecteur" to R.drawable.ic_device_projector,
+            "Climatiseur" to R.drawable.ic_device_ac,
+            "Ventilateur" to R.drawable.ic_device_fan
         )
 
         for ((name, iconRes) in devices) {
